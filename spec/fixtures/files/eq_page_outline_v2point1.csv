@@ -1,0 +1,13 @@
+name,parent_path,slug
+Home,,/
+About,/,about
+Board of Directors,/about/,board-of-directors
+History,/about/,history
+Corporate Social Responsibility,/about/,corporate-social-responsibility
+Technology,/,technology
+Services,/,services
+Products,/,products
+Product A,/products/,product-a
+Product C,/products/,product-c
+Product B,/products/,product-b
+Contact,/,contact-us

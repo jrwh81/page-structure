@@ -1,0 +1,69 @@
+<style>
+/* Remove default bullets */
+ul, #myUL {
+  list-style-type: none;
+}
+
+/* Remove margins and padding from the parent ul */
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the caret/arrow */
+.caret {
+  cursor: pointer; 
+  user-select: none;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #000000;
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+  transform: rotate(90deg); 
+}
+
+/* Hide the nested list */
+.nested {
+  display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+  display: block;
+}
+</style>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>CSV FILE:</strong>
+  <%= @page.csv_id %>
+</p>
+
+<p>
+	<strong>PAGE STRUCTURE:</strong>
+	<p>Click Caret to View Child Pages</p>
+	<%= arranged_tree_as_list(@page_structure) do |page| %>
+		<% if page.children.present? %>
+	  	<span class="caret"></span><%= page.name %> - '<%= page.relative_path %>'
+	  <% else %>
+	  	<%= page.name %> - '<%= page.relative_path %>'
+	  <% end %>
+	<% end %>
+</p>
+<%= link_to 'View Saved Page Structures', pages_path %>
+<br>
+<%= link_to 'Create New Page', new_page_path %>
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>

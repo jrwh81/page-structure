@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  relative_path: MyString
+  parent_path: MyString
+  slug: MyString
+
+two:
+  name: MyString
+  relative_path: MyString
+  parent_path: MyString
+  slug: MyString
